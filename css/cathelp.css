@@ -73,7 +73,7 @@ body {
 }
 
 
-/* コンテンツ */
+/* メインコンテンツ */
 
 .panel {
   position         : absolute;
@@ -95,18 +95,23 @@ body {
   border-bottom  : 1px solid #b5b6b6;
 }
 
-.panel .calendar-wrapper {
-  position : absolute;
-  top      : 52px;
-  right    : 20px;
-  bottom   : 20px;
-  left     : 20px;
+.panel .wrapper {
+  position   : absolute;
+  top        : 52px;
+  right      : 20px;
+  bottom     : 20px;
+  left       : 20px;
+  overflow-y : auto;
 }
 
 .panel .row,
 .panel .col {
   position : relative;
   height   : 100%;
+}
+
+#schedule {
+  z-index : 10;
 }
 
 
@@ -146,6 +151,16 @@ body {
   padding-left  : 0;
 }
 
+/* 備品リストのスタイル */
+
+#item-list { box-shadow : 0 0; }
+#room-list { box-shadow : 0 0; }
+
+.collapsible-body {
+  padding : 15px;
+}
+
+
 /* modal window */
 #modal1 .modal-content div{
   margin: 0 auto;
@@ -170,4 +185,3 @@ body {
     display: block;
   }
 }
-

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/cathelp.css">
   </head>
   <body>
+    <!-- ナビゲーションバーなど -->
     <header>
       <nav class="nav-extended">
         <div class="nav-wrapper">
@@ -41,12 +42,13 @@
         </div>
       </nav>
     </header>
+    <!-- メインコンテンツ -->
     <main>
       <div class="panel" id="schedule">
         <div class="row">
           <div class="col s12">
             <h2 class="panel-header">スケジュール</h2>
-            <div class="calendar-wrapper">
+            <div class="wrapper">
               <div class="calendar"></div>
             </div>
           </div>
@@ -56,7 +58,7 @@
         <div class="row">
           <div class="col s9">
             <h2 class="panel-header">備品予約</h2>
-            <div class="calendar-wrapper">
+            <div class="wrapper">
               <div class="calendar"></div>
             </div>
           </div>
@@ -67,8 +69,10 @@
                 <button class="btn-flat" type="submit"><i class="fa fa-search"></i></button>
               </div>
             </form>
-            <ul id="item-list" class="collection">
-            </ul>
+            <div class="wrapper">
+              <ul class="collapsible" id="item-list" data-collapsible="accordion">
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +80,7 @@
         <div class="row">
           <div class="col s9">
             <h2 class="panel-header">施設予約</h2>
-            <div class="calendar-wrapper">
+            <div class="wrapper">
               <div class="calendar"></div>
             </div>
           </div>
@@ -87,8 +91,10 @@
                 <button class="btn-flat" type="submit"><i class="fa fa-search"></i></button>
               </div>
             </form>
-            <ul id="room-list" class="collection">
-            </ul>
+            <div class="wrapper">
+              <ul class="collapsible" id="room-list" data-collapsible="accordion">
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -104,7 +110,6 @@
                   <th>Button</th>
               </tr>
             </thead>
-
             <tbody>
               <tr>
                 <td>Alvin</td>
@@ -129,8 +134,6 @@
         </div>
       </div>
     </main>
-    <footer>
-    </footer>
 
     <!-- modal window -->
     <div id="modal1" class="modal">
@@ -145,6 +148,28 @@
       </div>
     </div>
 
+
+    <!-- 備品予約ダイアログ -->
+    <div class="modal modal-fixed-footer" id="item-reservation">
+      <div class="modal-content">
+        <h4>備品を予約します。</h4>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" href="#">閉じる</a>
+        <a class="modal-action modal-close waves-effect waves-green btn" href="#">予約する</a>
+      </div>
+    </div>
+
+    <!-- 施設予約ダイアログ -->
+    <div class="modal modal-fixed-footer" id="room-reservation">
+      <div class="modal-content">
+        <h4>施設を予約します。</h4>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" href="#">閉じる</a>
+        <a class="modal-action modal-close waves-effect waves-green btn" href="#">予約する</a>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"></script>
