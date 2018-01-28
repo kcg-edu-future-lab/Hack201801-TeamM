@@ -32,4 +32,4 @@ user_role
 id name
 
 user_schedule
-id user_id
+id user_id date name
