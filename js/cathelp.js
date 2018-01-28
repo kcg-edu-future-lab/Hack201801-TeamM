@@ -8,16 +8,90 @@ $('#navigation-tabs').tabs({
     initCalendar($('.calendar', tab));
 
     if (tab[0].id === 'item') {
+      $('#item').removeData('name');
       $('#item .panel-header').text('備品予約');
       updateItems();
     }
     if (tab[0].id === 'room') {
+      $('#room').removeData('name');
       $('#room .panel-header').text('施設予約');
       updateRooms();
     }
   }
 });
 
+// 予約モーダルの完了処理
+$('#item-reservation .modal-close').on('click', function() {
+  var eid = 1;
+  var pid = 1;
+  var stime = $('#item-reservation .stime').text();
+  var etime = $('#item-reservation .etime').text();
+
+  $.post('http://10.41.0.4:4567/api/v1/reservation/equipment', {
+    'eid' : eid,
+    'pid' : pid,
+    'stime' : stime,
+    'etime' : etime,
+  }).done(console.log).fail(console.log);
+
+  var items = [
+    {
+      'start' : stime,
+      'end'   : etime,
+    }
+  ];
+
+  $('#item .calendar').fullCalendar('renderEvents', items);
+});
+$('#room-reservation .modal-close').on('click', function() {
+  var eid = 1;
+  var pid = 1;
+  var stime = $('#room-reservation .stime').text();
+  var etime = $('#room-reservation .etime').text();
+
+  $.post('http://10.41.0.4:4567/api/v1/reservation/equipment', {
+    'eid' : eid,
+    'pid' : pid,
+    'stime' : stime,
+    'etime' : etime,
+  }).done(console.log);
+
+  var items = [
+    {
+      'start' : stime,
+      'end'   : etime,
+    }
+  ];
+
+  $('#room .calendar').fullCalendar('renderEvents', items);
+});
+$('#schedule-reservation .modal-close').on('click', function() {
+  var name  = $('#schedule-reservation input').val();
+
+  if (name === '') {
+    return;
+  }
+
+  var stime = $('#schedule-reservation .stime').text();
+  var etime = $('#schedule-reservation .etime').text();
+
+  $.post('http://10.41.0.4:4567/api/v1/schedule', {
+    'name'  : name,
+    'stime' : stime,
+    'etime' : etime,
+  }).done(console.log);
+
+  var items = [
+    {
+      'start' : stime,
+      'end'   : etime,
+    }
+  ];
+
+  $('#schedule .calendar').fullCalendar('renderEvents', items);
+});
+
+// カレンダーを初期化します。
 function initCalendar($target) {
   $target.fullCalendar('destroy');;
   $target.fullCalendar({
@@ -27,8 +101,28 @@ function initCalendar($target) {
     'defaultView' : 'agendaWeek',
     'scrollTime'  : moment().format('HH:00:00'),
     'selectable'  : true,
-    'select'      : function(start, end) {
-      $('#schedule .calendar').fullCalendar('unselect');
+    'select'      : function(stime, etime) {
+      var id = $target.closest('.panel').attr('id');
+
+      if (id === 'item' && $('#item').data('name') !== (void 0)) {
+        $('#item-reservation h4').text($('#item').data('name') + 'の予約');
+        $('#item-reservation .stime').text(stime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#item-reservation .etime').text(etime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#item-reservation').modal('open');
+      }
+      if (id === 'room' && $('#room').data('name') !== (void 0)) {
+        $('#room-reservation h4').text($('#room').data('name') + 'の予約');
+        $('#room-reservation .stime').text(stime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#room-reservation .etime').text(etime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#room-reservation').modal('open');
+      }
+      if (id === 'schedule') {
+        $('#schedule-reservation .stime').text(stime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#schedule-reservation .etime').text(etime.format('YYYY-MM-DD HH:mm:ss'));
+        $('#schedule-reservation').modal('open');
+      }
+
+      $target.fullCalendar('unselect');
     },
   });
 }
@@ -161,15 +255,16 @@ $('#room-search').on('submit', function() {
 $(document).on('click', '[href="#item-reservation"]', function() {
   // Ajaxで取得
   var items = [
-    {
-      'start' : '2018-01-28 15:00:00',
-      'end'   : '2018-01-28 17:00:00',
-    }
+    // {
+    //   'start' : '2018-01-28 15:00:00',
+    //   'end'   : '2018-01-28 17:00:00',
+    // }
   ];
 
   $('#item .calendar').fullCalendar('removeEvents');
   $('#item .calendar').fullCalendar('renderEvents', items);
   $('#item .panel-header').text($(this).text() + 'の予約');
+  $('#item').data('name', $(this).text());
 
   return false;
 });
@@ -178,15 +273,16 @@ $(document).on('click', '[href="#item-reservation"]', function() {
 $(document).on('click', '[href="#room-reservation"]', function() {
   // Ajaxで取得
   var rooms = [
-    {
-      'start' : '2018-01-28 15:00:00',
-      'end'   : '2018-01-28 17:00:00',
-    }
+    // {
+    //   'start' : '2018-01-28 15:00:00',
+    //   'end'   : '2018-01-28 17:00:00',
+    // }
   ];
 
   $('#room .panel-header').text($(this).text() + 'の予約');
   $('#room .calendar').fullCalendar('removeEvents');
   $('#room .calendar').fullCalendar('renderEvents', rooms);
+  $('#room').data('name', $(this).text());
 
   return false;
 });

@@ -23,7 +23,7 @@
                 <i class="fa fa-cog fa-2x"></i>
               </a>
               <ul class="dropdown-content" id="setting">
-                <li><a href="#">個人設定</a></li>
+                <li><a class="modal-trigger" href="#user-setting">個人設定</a></li>
                 <li class="divider"></li>
                 <li><a class="modal-trigger" href="#modal1">やべえ！</a></li>
                 <li class="divider"></li>
@@ -134,13 +134,27 @@
     </div>
 
 
+    <!-- スケジュール登録 -->
+    <div class="modal modal-fixed-footer" id="schedule-reservation">
+      <div class="modal-content">
+        <h4>予定を追加します。</h4>
+        <div class="stime"></div>
+        <div class="etime"></div>
+        <input name="name" type="text" placeholder="予定の名前">
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn" href="#">追加する</a>
+      </div>
+    </div>
+
     <!-- 備品予約ダイアログ -->
     <div class="modal modal-fixed-footer" id="item-reservation">
       <div class="modal-content">
         <h4>備品を予約します。</h4>
+        <div class="stime"></div>
+        <div class="etime"></div>
       </div>
       <div class="modal-footer">
-        <a class="modal-action modal-close waves-effect waves-green btn-flat" href="#">閉じる</a>
         <a class="modal-action modal-close waves-effect waves-green btn" href="#">予約する</a>
       </div>
     </div>
@@ -149,10 +163,21 @@
     <div class="modal modal-fixed-footer" id="room-reservation">
       <div class="modal-content">
         <h4>施設を予約します。</h4>
+        <div class="stime"></div>
+        <div class="etime"></div>
       </div>
       <div class="modal-footer">
-        <a class="modal-action modal-close waves-effect waves-green btn-flat" href="#">閉じる</a>
         <a class="modal-action modal-close waves-effect waves-green btn" href="#">予約する</a>
+      </div>
+    </div>
+
+    <!-- ユーザー設定ダイアログ -->
+    <div class="modal modal-fixed-footer" id="user-setting">
+      <div class="modal-content">
+        <h4>設定</h4>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn" href="#">保存する</a>
       </div>
     </div>
 

@@ -190,3 +190,11 @@ body {
     display: block;
   }
 }
+
+
+.stime::before {
+  content : '開始日時 : ';
+}
+.etime::before {
+  content : '終了日時 : ';
+}
