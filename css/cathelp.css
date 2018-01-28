@@ -165,6 +165,11 @@ body {
 #modal1 .modal-content div{
   margin: 0 auto;
 }
+#yabeBtn{
+  padding: 0;
+  border: none;
+  background: transparent;
+}
 @media screen and (max-width: 480px){
   #modal1.modal{
     width: 100%;

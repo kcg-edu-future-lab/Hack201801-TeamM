@@ -111,24 +111,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>10:00-12:00</td>
-                <td><a class="waves-effect waves-light btn">救援要請</a></td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>10:00-12:00</td>
-                <td><a class="waves-effect waves-light btn">救援要請</a></td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>10:00-12:00</td>
-                <td><a class="waves-effect waves-light btn">救援要請</a></td>
-              </tr>
+              <!-- ajaxで挿入される -->
             </tbody>
           </table>
         </div>
@@ -141,7 +124,9 @@
         <h4>本当に押しますか！？</h4>
         <p>ヤベェボタンを押すと取り消すことは出来ません。</p>
         <p>本当に押しますか</p>
-        <img src="../img/attentionBtn.png" alt="">
+        <button id="yabeBtn">
+          <img src="../img/attentionBtn.png" alt="">
+        </button>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">救援中止</a>
