@@ -1,0 +1,7 @@
+encoding: utf8
+pool: 300
+host: 10.41.0.10
+port: 3306
+database: nekonote
+username: root
+password: 
