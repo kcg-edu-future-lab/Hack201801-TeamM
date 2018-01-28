@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="../css/cathelp.css">
   </head>
   <body>
@@ -32,7 +33,7 @@
         </div>
         <div class="nav-content">
           <ul id="navigation-tabs">
-            <li class="tab"><a href="#calendar"><i class="fa fa-calendar fa-2x"></i></a></li>
+            <li class="tab"><a href="#schedule"><i class="fa fa-calendar fa-2x"></i></a></li>
             <li class="tab"><a href="#item"><i class="fa fa-wrench fa-2x"></i></a></li>
             <li class="tab"><a href="#room"><i class="fa fa-home fa-2x"></i></a></li>
             <li class="tab"><a href="#cat-help"><i class="fa fa-paw fa-2x"></i></a></li>
@@ -41,16 +42,54 @@
       </nav>
     </header>
     <main>
-      <div class="panel" id="calendar">
-        <div class="row">
-        </div>
+      <div class="panel" id="schedule">
         <h2 class="panel-header">スケジュール</h2>
+        <div class="calendar-wrapper">
+          <div class="calendar"></div>
+        </div>
       </div>
       <div class="panel" id="item">
-        <h2 class="panel-header">備品予約</h2>
+        <div class="row">
+          <div class="col s9">
+            <h2 class="panel-header">備品予約</h2>
+            <div class="calendar-wrapper">
+              <div class="calendar"></div>
+            </div>
+          </div>
+          <div class="col s3">
+            <form id="item-search" action="#" method="post">
+              <div class="input-field">
+                <input name="item" type="search">
+                <button class="btn-flat" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+            <ul id="item-list" class="collection">
+              <a class="collection-item" href="#">カメラ</a>
+              <a class="collection-item" href="#">ハードディスク</a>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="panel" id="room">
-        <h2 class="panel-header">施設予約</h2>
+        <div class="row">
+          <div class="col s9">
+            <h2 class="panel-header">施設予約</h2>
+            <div class="calendar-wrapper">
+              <div class="calendar"></div>
+            </div>
+          </div>
+          <div class="col s3">
+            <form id="room-search" action="#" method="post">
+              <div class="input-field">
+                <input name="room" type="search">
+                <button class="btn-flat" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+            <ul id="room-list" class="collection">
+              <a class="collection-item" href="#">会議室</a>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="panel" id="cat-help">
         <h2 class="panel-header">ねこのてリスト</h2>
@@ -60,6 +99,8 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@3,npm/fullcalendar@3/dist/locale/ja.min.js"></script>
     <script src="../js/cathelp.js"></script>
   </body>
 </html>
