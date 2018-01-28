@@ -176,3 +176,7 @@ body {
   }
 }
 
+/* 猫の手リスト */
+#cat-help h2{
+  margin-bottom: 10px;
+}

@@ -114,7 +114,7 @@ $("#yabeBtn").click(function () {
     $('#modal1').modal('close');
     $.ajax({
         type: 'POST',
-        url: "http://127.0.0.1/" + 'aaa',
+        url: " /api/v1/nekonote/test",
         timeout: 10000,         // タイムアウト(ミリ秒)
         cache: true,            // キャッシュするかどうか
         // async: false,        // 同期通信にする : false
@@ -129,55 +129,77 @@ $("#yabeBtn").click(function () {
 // ネこの手リスト
 $(document).ready( function(){
 
-    var j = {
-        "0":{
-            "name" : "aaa",
-            "position" : "bbb",
-            "time" : "10:00-12:00"
-        },
-        "1":{
-            "name" : "aaaa",
-            "position" : "bbb",
-            "time" : "10:00-12:00"
-        }, 
-        "2":{
-            "name" : "aaaaa",
-            "position" : "bbb",
-            "time" : "10:00-12:00"
+    var j;
+    var rec = $.ajax({
+        type: 'GET',
+        url: "http://10.41.0.4:4567/api/v1/nekonote",
+        timeout: 10000,         // タイムアウト(ミリ秒)
+        cache: true,            // キャッシュするかどうか
+        // async: false,        // 同期通信にする : false
+        // data: sendData || null,     // サーバに送信するデータ(name: value)
+        dataType: 'json',       // レスポンスが適切なContentTypeを返していれば自動判別します。
+        beforeSend: function(jqXHR) {       // Ajax通信前処理
+            return true;        // falseを返すと処理を中断
         }
-    }
+    })
 
-    var base = $("#cat-help tbody");
+    rec.done(function(data){
+        // 成功処理
+
+        console.log(data);
+        j = data;
+
+        var base = $("#cat-help tbody");
     
-    
-    
-    for(let i in j) {
-        var tr = $("<tr>");
+        for(let i in j) {
+            var tr = $("<tr>");
 
-        var thName = $("<td>");
-        thName.append(j[i].name);
+            var thName = $("<td>");
+            thName.append(j[i].user_id);
 
-        var thPosition = $("<td>");
-        thPosition.append(j[i].position); 
+            var thTime= $("<td>");
+            thTime.append(moment(j[i].start_date).format('YYYY-MM-DD HH:mm') + " - " + moment(j[i].end_date).format('HH:mm'));
 
-        var thTime= $("<td>");
-        thTime.append(j[i].time);
+            var thBtn = $("<td>");
+            thBtn.addClass("help-"+j[i].user_id); // ヘルプの要請ID
+            thBtn.append("<a class=\"waves-effect waves-light btn catHelpBtn\">救援要請</a>");
 
-        var thBtn = $("<td>");
-        thBtn.addClass("help-"+j[i].name); // ヘルプの要請ID
-        thBtn.append("<a class=\"waves-effect waves-light btn catHelpBtn\">救援要請</a>");
+            tr.append(thName);
+            tr.append(thTime);
+            tr.append(thBtn);
 
-        tr.append(thName);
-        tr.append(thPosition);
-        tr.append(thTime);
-        tr.append(thBtn);
-
-        base.append(tr);
+            base.append(tr);
+            
+        }
         
-    }
+    })
+    rec.fail(function(data){
+        // 失敗処理
+        
+        
+    });
+
+
+    
 
 });
 
 $(document).on("click", ".catHelpBtn", function (e) {
     console.log(e.target.parentElement.className);
+
+    // var data={};
+    // data.id = "test";
+
+    $.ajax({
+        type: 'GET',
+        url: "http://10.41.0.4:4567/api/v1/nekonote/test",
+        timeout: 10000,         // タイムアウト(ミリ秒)
+        cache: true,            // キャッシュするかどうか
+        // async: false,        // 同期通信にする : false
+        // data: data,     // サーバに送信するデータ(name: value)
+        dataType: 'json',       // レスポンスが適切なContentTypeを返していれば自動判別します。
+        beforeSend: function(jqXHR) {       // Ajax通信前処理
+            return true;        // falseを返すと処理を中断
+        }
+    })
 });
