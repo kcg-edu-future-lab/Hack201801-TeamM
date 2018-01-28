@@ -147,6 +147,27 @@ body {
 }
 
 /* modal window */
-#modal1 .modal-content img{
-  height: 200px;
+#modal1 .modal-content div{
+  margin: 0 auto;
 }
+@media screen and (max-width: 480px){
+  #modal1.modal{
+    width: 100%;
+  }
+  #modal1 .modal-content img{
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+@media screen and (min-width: 480px){
+  #modal1.modal{
+    width: 450px;
+  }
+  #modal1 .modal-content img{
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
