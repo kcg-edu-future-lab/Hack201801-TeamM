@@ -145,3 +145,8 @@ body {
   padding-right : 0;
   padding-left  : 0;
 }
+
+/* modal window */
+#modal1 .modal-content img{
+  height: 200px;
+}

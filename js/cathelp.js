@@ -73,3 +73,7 @@ $('#room-search').on('submit', function() {
 
   return false;
 });
+
+$(document).ready(function(){
+  $('.modal').modal();
+});

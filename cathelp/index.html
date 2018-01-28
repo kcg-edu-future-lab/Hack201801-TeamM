@@ -24,7 +24,7 @@
               <ul class="dropdown-content" id="setting">
                 <li><a href="#">個人設定</a></li>
                 <li class="divider"></li>
-                <li><a href="#">やべえ！</a></li>
+                <li><a class="modal-trigger" href="#modal1">やべえ！</a></li>
                 <li class="divider"></li>
                 <li><a href="/">ログアウト</a></li>
               </ul>
@@ -93,10 +93,57 @@
       </div>
       <div class="panel" id="cat-help">
         <h2 class="panel-header">ねこのてリスト</h2>
+        <div class="row">
+          <table>
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Time</th>
+                  <th>Button</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>10:00-12:00</td>
+                <td><a class="waves-effect waves-light btn">救援要請</a></td>
+              </tr>
+              <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>10:00-12:00</td>
+                <td><a class="waves-effect waves-light btn">救援要請</a></td>
+              </tr>
+              <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>10:00-12:00</td>
+                <td><a class="waves-effect waves-light btn">救援要請</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
     <footer>
     </footer>
+
+    <!-- modal window -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+        <img src="../img/attentionBtn.png" alt="">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
