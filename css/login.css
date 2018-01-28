@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+body {
+  height                : 100vh;
+  padding-top           : 10vh;
+  font-family           : 'Noto Sans Japanese';
+  line-height           : 1.65;
+  letter-spacing        : .1em;
+  text-align            : center;
+  background-attachment : fixed;
+  background-image      : url('/img/login.png');
+  background-position   : center;
+  background-repeat     : no-repeat;
+  background-size       : 100% 100%;
+}
+
+h1 {
+  font-size      : 48px;
+  font-weight    : lighter;
+  letter-spacing : .2em;
+  color          : #ffffff;
+}
+
+#login-form {
+  margin-top    : 32px;
+  margin-bottom : 32px;
+}
+
+#login-form label {
+  color : #ffffff;
+}
+
+#login-form input {
+  color               : #ffffff;
+  border-bottom-color : skyblue;
+  border-bottom-width : 3px;
+}
+
+#login-form [type='submit'] {
+  margin-top : 32px;
+  font-size  : 32px;
+  color      : #ffffff;
+}

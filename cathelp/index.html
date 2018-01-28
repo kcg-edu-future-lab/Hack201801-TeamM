@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>ねこのて！</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/cathelp.css">
+  </head>
+  <body>
+    <header>
+      <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <a class="brand-logo" href=".">ねこのて！</a>
+          <ul class="right">
+            <li>
+              <a class="dropdown-button" data-activates="setting" data-beloworigin="true" data-constrainwidth="false" href="#">
+                <i class="fa fa-cog fa-2x"></i>
+              </a>
+              <ul class="dropdown-content" id="setting">
+                <li><a href="#">個人設定</a></li>
+                <li class="divider"></li>
+                <li><a href="#">やべえ！</a></li>
+                <li class="divider"></li>
+                <li><a href="/">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-content">
+          <ul id="navigation-tabs">
+            <li class="tab"><a href="#calendar"><i class="fa fa-calendar fa-2x"></i></a></li>
+            <li class="tab"><a href="#item"><i class="fa fa-wrench fa-2x"></i></a></li>
+            <li class="tab"><a href="#room"><i class="fa fa-home fa-2x"></i></a></li>
+            <li class="tab"><a href="#cat-help"><i class="fa fa-paw fa-2x"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="panel" id="calendar">
+        <div class="row">
+        </div>
+        <h2 class="panel-header">スケジュール</h2>
+      </div>
+      <div class="panel" id="item">
+        <h2 class="panel-header">備品予約</h2>
+      </div>
+      <div class="panel" id="room">
+        <h2 class="panel-header">施設予約</h2>
+      </div>
+      <div class="panel" id="cat-help">
+        <h2 class="panel-header">ねこのてリスト</h2>
+      </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/materialize-css@0.100.2/dist/js/materialize.min.js"></script>
+    <script src="/js/cathelp.js"></script>
+  </body>
+</html>
