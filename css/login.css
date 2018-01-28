@@ -8,7 +8,7 @@ body {
   letter-spacing        : .1em;
   text-align            : center;
   background-attachment : fixed;
-  background-image      : url('img/login.png');
+  background-image      : url('../img/login.png');
   background-position   : center;
   background-repeat     : no-repeat;
   background-size       : 100% 100%;
