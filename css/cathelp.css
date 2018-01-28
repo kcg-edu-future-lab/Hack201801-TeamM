@@ -87,3 +87,9 @@ body {
   font-size      : 20px;
   border-bottom  : 1px solid #b5b6b6;
 }
+
+
+/* modal window */
+#modal1 .modal-content img{
+  height: 200px;
+}
