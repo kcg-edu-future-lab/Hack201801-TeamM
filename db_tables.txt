@@ -1,0 +1,35 @@
+equipment
+id name category
+
+equipment_category
+id name
+
+equipment_reservation_schedule
+id equipment_id project_id start_date end_date
+
+facility
+id name
+
+facility_reservation_schedule
+id facility_id start_date end_date
+
+nekonote_schedule
+id user_id start_date end_date
+
+project
+id name create_at delivery_date
+
+project_member
+user_id project_id
+
+project_reservation
+project_id reservation_id
+
+user
+id name password_digest evaluation role create_at update_at
+
+user_role
+id name
+
+user_schedule
+id user_id
