@@ -12,8 +12,6 @@ require_relative 'api'
 
 # メインページ
 get '/' do
-  if(session[:user].nil?)
-    redirect '/login'
-  end
+  redirect '/login' if session[:user].nil?
   erb :index
 end

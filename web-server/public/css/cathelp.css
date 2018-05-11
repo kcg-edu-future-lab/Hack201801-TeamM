@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+/* 全体のスタイル */
+body {
+  font-family      : 'Noto Sans Japanese';
+  line-height      : 1.65;
+  letter-spacing   : .1em;
+  text-align       : justify;
+  background-color : #dfe0e0;
+}
+
+
+/* ナビゲーション */
+
+.nav-wrapper {
+  padding-right    : 0.75rem;
+  padding-left     : 0.75rem;
+  background-color : #1a86b4;
+}
+
+.nav-content {
+  height           : 128px;
+  background-color : #424242;
+  border-bottom    : 1px solid #8e8886;
+}
+
+#navigation-tabs {
+  position                : absolute;
+  top                     : 0;
+  right                   : 0;
+  bottom                  : 0;
+  left                    : 0;
+  display                 : -webkit-flex;
+  display                 :         flex;
+  -webkit-align-items     : center;
+          align-items     : center;
+  -webkit-justify-content : center;
+          justify-content : center;
+  width                   : 100%;
+  height                  : 100%;
+}
+
+#navigation-tabs li {
+  margin-right : 32px;
+  margin-left  : 32px;
+}
+
+#navigation-tabs li a {
+  padding          : 16px;
+  color            : #176586;
+  background-color : #ffffff;
+  border-radius    : 50%;
+}
+
+#navigation-tabs li a:hover {
+  background-color : #333333;
+}
+
+#navigation-tabs li a i {
+  height : auto;
+}
+
+#navigation-tabs li.indicator {
+  position            : absolute;
+  bottom              : 15px;
+  z-index             : 1000;
+  width               : 19.2px;
+  height              : 19.2px;
+  margin-right        : 20px;
+  margin-left         : 20px;
+  border              : 10px solid transparent;
+  border-bottom-color : #ffffff;
+}
+
+
+/* メインコンテンツ */
+
+.panel {
+  position         : absolute;
+  top              : 175px;
+  right            : 15vw;
+  bottom           : 5vh;
+  left             : 15vw;
+  padding          : 20px;
+  background-color : #ffffff;
+  border-radius    : 6px;
+  box-shadow       : 0 0 6px gray;
+}
+
+.panel .panel-header {
+  padding-bottom : 10px;
+  margin-top     : 0;
+  margin-bottom  : 0;
+  font-size      : 20px;
+  border-bottom  : 1px solid #b5b6b6;
+}
+
+.panel .wrapper {
+  position   : absolute;
+  top        : 52px;
+  right      : 20px;
+  bottom     : 20px;
+  left       : 20px;
+  overflow-y : auto;
+}
+
+.panel .row,
+.panel .col {
+  position : relative;
+  height   : 100%;
+}
+
+#schedule {
+  z-index : 10;
+}
+
+
+/* 備品・施設の検索 */
+
+#item-search .input-field {
+  position   : relative;
+  margin-top : 0;
+}
+
+#item-search .input-field input {
+  height : 32px;
+}
+
+#item-search .input-field button {
+  position      : absolute;
+  top           : 0;
+  right         : 10px;
+  padding-right : 0;
+  padding-left  : 0;
+}
+
+#room-search .input-field {
+  position   : relative;
+  margin-top : 0;
+}
+
+#room-search .input-field input {
+  height : 32px;
+}
+
+#room-search .input-field button {
+  position      : absolute;
+  top           : 0;
+  right         : 10px;
+  padding-right : 0;
+  padding-left  : 0;
+}
+
+/* 備品リストのスタイル */
+
+#item-list { box-shadow : 0 0; }
+#room-list { box-shadow : 0 0; }
+
+.collapsible-body {
+  padding : 15px;
+}
+
+
+/* modal window */
+#modal1 .modal-content div{
+  margin: 0 auto;
+}
+#yabeBtn{
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+@media screen and (max-width: 480px){
+  #modal1.modal{
+    width: 100%;
+  }
+  #modal1 .modal-content img{
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+@media screen and (min-width: 480px){
+  #modal1.modal{
+    width: 450px;
+  }
+  #modal1 .modal-content img{
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* 猫の手リスト */
+#cat-help h2{
+  margin-bottom: 10px;
+}
+
+.stime::before {
+  content : '開始日時 : ';
+}
+.etime::before {
+  content : '終了日時 : ';
+}

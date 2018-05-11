@@ -13,8 +13,35 @@ id name
 facility_reservation_schedule
 id facility_id start_date end_date
 
-nekonote_schedule
-id user_id start_date end_date
+user
+id name password_digest evaluation role create_at update_at
+create table users(
+  id integer primary key,
+  name text,
+  email text,
+  evaluation integer,
+  role integer,
+  create_at text,
+  update_at text
+);
+
+user_role
+id name
+create table roles(
+  id integer primary key,
+  name text
+);
+
+user_schedule
+id user_id name date
+create tabel user_schedules(
+  id integer primary key,
+  user_id integer,
+  name text,
+  date text
+);
+
+/////まだ
 
 project
 id name create_at delivery_date
@@ -25,11 +52,5 @@ user_id project_id
 project_reservation
 project_id reservation_id
 
-user
-id name password_digest evaluation role create_at update_at
-
-user_role
-id name
-
-user_schedule
-id user_id date name
+nekonote_schedule
+id user_id start_date end_date

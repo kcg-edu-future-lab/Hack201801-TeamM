@@ -11,10 +11,8 @@ post '/login' do
   sql = "SELECT id,password_digest FROM user"
   user = select_db(sql).first
   user_pass = user[:password_digest]
-  if(pass == user_pass)
-    session[:user] = user[:id]
-  end
-  redirect "/"
+  session[:user] = user[:id] if pass == user_pass
+  redirect '/'
 end
 
 post '/logout' do
