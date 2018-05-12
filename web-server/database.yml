@@ -1,3 +1,6 @@
-development:
+default: &default
   adapter: sqlite3
+  database: team-m.db
+development:
+  <<: *default
   database: team-m.db

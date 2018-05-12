@@ -8,7 +8,7 @@ body {
   letter-spacing        : .1em;
   text-align            : center;
   background-attachment : fixed;
-  background-image      : url('../img/login.png'); /* TODO: 画像を差し替える グラデーションにする */
+  background            : linear-gradient(#F89174, #FFC778);
   background-position   : center;
   background-repeat     : no-repeat;
   background-size       : 100% 100%;

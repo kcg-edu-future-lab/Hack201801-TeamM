@@ -1,17 +1,53 @@
-equipment
-id name category
+equipment_categories
+カテゴリIDとカテゴリ名
+create table equipment_categories(
+  id integer primary key,
+  name text
+);
 
-equipment_category
+equipments
+備品ID、名前、カテゴリID（外部キー）
+create table equipments(
+  id integer primary key,
+  name text,
+  category integer,
+  foreign key (category) references equipment_categories(id)
+);
+
+equipment_reservation_schedules
+// id equipment_id project_id start_date end_date
+備品予約ID、予約されてる備品ID（外部キー）、開始日、終了日
+create table equipment_reservation_schedules(
+  id integer primary key,
+  equipment_id integer,
+  start_date text,
+  end_date text,
+  foreign key (equipment_id) references equipments(id)
+);
+
+facilities
+施設ID、施設名
+create table facilities(
+  id integer primary key,
+  name text
+);
+
+facility_reservation_schedules
+予約ID、施設ID（外部キー）、開始時刻、終了時刻
+create table facility_reservation_schedules(
+  id integer primary key,
+  facility_id integer,
+  start_date text,
+  end_date text,
+  foreign key (facility_id) references facilities(id)
+);
+
+roles
 id name
-
-equipment_reservation_schedule
-id equipment_id project_id start_date end_date
-
-facility
-id name
-
-facility_reservation_schedule
-id facility_id start_date end_date
+create table roles(
+  id integer primary key,
+  name text
+);
 
 user
 id name password_digest evaluation role create_at update_at
@@ -22,23 +58,18 @@ create table users(
   evaluation integer,
   role integer,
   create_at text,
-  update_at text
+  update_at text,
+  foreign key (role) references roles(id)
 );
 
-user_role
-id name
-create table roles(
-  id integer primary key,
-  name text
-);
-
-user_schedule
+user_schedules
 id user_id name date
-create tabel user_schedules(
+create table user_schedules(
   id integer primary key,
   user_id integer,
   name text,
-  date text
+  date text,
+  foreign key (user_id) references users(id)
 );
 
 /////まだ
