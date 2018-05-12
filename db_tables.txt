@@ -5,9 +5,9 @@ create table equipment_categories(
   name text
 );
 
-equipments
+equipment
 備品ID、名前、カテゴリID（外部キー）
-create table equipments(
+create table equipment(
   id integer primary key,
   name text,
   category integer,
@@ -55,10 +55,11 @@ create table users(
   id integer primary key,
   name text,
   email text,
+  password_digest text,
   evaluation integer,
   role integer,
-  create_at text,
-  update_at text,
+  created_at text,
+  updated_at text,
   foreign key (role) references roles(id)
 );
 
@@ -68,7 +69,8 @@ create table user_schedules(
   id integer primary key,
   user_id integer,
   name text,
-  date text,
+  start_time text,
+  end_time text,
   foreign key (user_id) references users(id)
 );
 
