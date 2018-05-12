@@ -28,8 +28,6 @@ end
 get '/api/v1/reservation/equipment' do
   category = params[:category]
   # sql = "SELECT equipment.name, project_id, start_date, end_date FROM equipment_reservation INNER JOIN equipment ON equipment.id = equipment_reservation.equipment_id WHERE equipment_id = '#{category}'"
-  # ary = select_db(sql)
-  # ary.to_json
   reservation = EquipmentReservationSchedule.all.joins(:equipment).select(
     'equipment_reservation_schedules.*, equipment.*').where(category_id: category)
   reservation.to_json
@@ -52,9 +50,10 @@ get '/api/v1/category/equipment' do
   e_category = EquipmentCategory.all
   e_category.to_json
 end
+
 # 備品詳細
 get '/api/v1/equipment' do
-  equipment = Equipment.all.select('id, name').where(category: params[:category])
+  equipment = Equipment.all.where(category: params[:category])
   equipment.to_json
 end
 
