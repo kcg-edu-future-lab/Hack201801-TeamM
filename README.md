@@ -11,8 +11,6 @@ bundle exec ruby app.rb
 
 ![screenshot-2018-5-7 5](https://user-images.githubusercontent.com/12947868/39707746-382fbbc8-5250-11e8-9025-06264ccff55c.png)
 
-## 
-
 TeamMによる成果物です。  
 
 スケジュールはドラッグアンドドロップで予定を追加できます。  
