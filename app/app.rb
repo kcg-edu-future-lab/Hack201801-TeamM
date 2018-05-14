@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'date'
 require 'json'
-require 'mysql2'
 require 'yaml'
 
 enable :sessions

@@ -38,7 +38,7 @@ datetime = now.strftime('%Y/%m/%d %H:%M:%S') # 2014/09/06 16:29:32
 # )
 # camera.save
 # hdd.save
-pp EquipmentCategory.all
+# pp EquipmentCategory.all
 
 # 備品登録
 # camera_a = Equipment.new(
@@ -56,7 +56,7 @@ pp EquipmentCategory.all
 # camera_a.save
 # camera_b.save
 # hdd_a.save
-pp Equipment.all
+# pp Equipment.all
 
 # 施設登録
 # facility01 = Facility.new(
@@ -68,15 +68,16 @@ pp Equipment.all
 # facility01.save
 # facility02.save
 
-pp Facility.all
+# pp Facility.all
 
 require 'json'
 
-user_schedules = UserSchedule.all.where(user_id: 1)
-pp user_schedules.to_json
+# user_schedules = UserSchedule.all.where(user_id: 1)
+# pp user_schedules.to_json
 
 # user = User.new(
-#   name: 'debugger',
+#   id: 'debugger',
+#   name: 'デバッガ',
 #   email: 'example@example.com',
 #   password_digest: generate_password('debugger'),
 #   evaluation: 0,
@@ -86,6 +87,6 @@ pp user_schedules.to_json
 # )
 # user.save
 
-# user = User.find(1)
-# pp user.password_digest
+# user = User.find_by_id('aa')
+# pp user
 # pp generate_password('debugger')

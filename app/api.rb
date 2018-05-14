@@ -46,15 +46,19 @@ post '/api/v1/reservation/equipment' do
   reservation.save
 end
 # 備品カテゴリ一覧
-get '/api/v1/category/equipment' do
-  e_category = EquipmentCategory.all
-  e_category.to_json
-end
+# get '/api/v1/category/equipment' do
+#   e_category = EquipmentCategory.all
+#   e_category.to_json
+# end
 
 # 備品詳細
 get '/api/v1/equipment' do
-  equipment = Equipment.all.where(category: params[:category])
-  equipment.to_json
+  e_categories = EquipmentCategory.all
+  e_categories.map do |category|
+    equipments = Equipment.all.where(category: category.id)
+    types = equipments.map { |e| { 'name' => e.name } }
+    { 'name' => category.name, 'type' => types }
+  end.to_json
 end
 
 # 施設予約

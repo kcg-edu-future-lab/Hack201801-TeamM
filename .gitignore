@@ -1,1 +1,4 @@
 db_tables.txt
+app/vender
+.DS_Store
+app/.bundle
