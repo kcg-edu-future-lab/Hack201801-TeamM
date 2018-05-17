@@ -15,13 +15,12 @@ post '/api/v1/schedule/:id' do
   stime = params[:stime]
   etime = params[:etime]
   name = params[:name]
-  user_schedule = UserSchedule.new(
+  UserSchedule.create(
     user_id: params[:id],
     name: name,
     start_time: stime,
     end_time: etime
   )
-  user_schedule.save
 end
 
 # 備品予約取得
@@ -45,16 +44,10 @@ post '/api/v1/reservation/equipment' do
   )
   reservation.save
 end
-# 備品カテゴリ一覧
-# get '/api/v1/category/equipment' do
-#   e_category = EquipmentCategory.all
-#   e_category.to_json
-# end
 
 # 備品詳細
 get '/api/v1/equipment' do
-  e_categories = EquipmentCategory.all
-  e_categories.map do |category|
+  EquipmentCategory.all.map do |category|
     equipments = Equipment.all.where(category: category.id)
     types = equipments.map { |e| { 'name' => e.name } }
     { 'name' => category.name, 'type' => types }
@@ -79,10 +72,14 @@ post '/api/v1/reservation/facility' do
   )
   schedule.save
 end
+
 # 施設詳細
 get '/api/v1/facility' do
-  facilities = Facility.all
-  facilities.to_json
+  FacilityCategory.all.map do |category|
+    facilities = Facility.all.where(category: category.id)
+    types = facilities.map { |e| { 'name' => e.name } }
+    { 'name' => category.name, 'type' => types }
+  end.to_json
 end
 
 # 猫の手

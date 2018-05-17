@@ -38,6 +38,7 @@ $('#navigation-tabs').tabs({
     if (tab[0].id === 'item') {
       $('#item').removeData('name');
       $('#item .panel-header').text('備品予約');
+      // 備品一覧をとってくる
       fetchWrapper('/api/v1/equipment', null).then(body => {
         updateItems(body);
       }).catch(err => {
@@ -48,7 +49,13 @@ $('#navigation-tabs').tabs({
     if (tab[0].id === 'room') {
       $('#room').removeData('name');
       $('#room .panel-header').text('施設予約');
-      updateRooms();
+      // 施設一覧をとってくる
+      fetchWrapper('/api/v1/facility', null).then(body => {
+        updateRooms(body);
+      }).catch(err => {
+        console.log("通信エラー");
+        updateRooms();
+      });
     }
   }
 });
@@ -202,18 +209,8 @@ function updateRooms(rooms) {
   if (rooms === (void 0)) {
     rooms = [
       {
-        'name': '会議室',
-        'type': [
-          {
-            'name': '会議室A',
-          },
-          {
-            'name': '会議室B',
-          },
-          {
-            'name': '会議室C',
-          },
-        ],
+        'name': 'none',
+        'type': [],
       },
     ];
     updateRooms(rooms);

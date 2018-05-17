@@ -1,5 +1,6 @@
 require 'pp'
 require 'active_record'
+require 'json'
 
 ActiveRecord::Base.configurations = YAML.load_file('database.yml')
 ActiveRecord::Base.establish_connection(:development)
@@ -9,6 +10,8 @@ end
 class Equipment < ActiveRecord::Base
 end
 class EquipmentReservationSchedule < ActiveRecord::Base
+end
+class FacilityCategory < ActiveRecord::Base
 end
 class Facility < ActiveRecord::Base
 end
@@ -30,52 +33,50 @@ now = Time.now
 datetime = now.strftime('%Y/%m/%d %H:%M:%S') # 2014/09/06 16:29:32
 
 # 備品カテゴリ
-# camera = EquipmentCategory.new(
+# EquipmentCategory.create(
 #   name: 'カメラ'
 # )
-# hdd = EquipmentCategory.new(
+# EquipmentCategory.create(
 #   name: 'ハードディスク'
 # )
-# camera.save
-# hdd.save
 # pp EquipmentCategory.all
 
 # 備品登録
-# camera_a = Equipment.new(
+# Equipment.create(
 #   name: 'カメラA',
 #   category: 1
 # )
-# camera_b = Equipment.new(
+# Equipment.create(
 #   name: 'カメラB',
 #   category: 1
 # )
-# hdd_a = Equipment.new(
+# Equipment.create(
 #   name: 'ハードディスクA',
 #   category: 2
 # )
-# camera_a.save
-# camera_b.save
-# hdd_a.save
 # pp Equipment.all
 
+# 施設カテゴリ
+# FacilityCategory.create(
+#   name: '会議室'
+# )
+
 # 施設登録
-# facility01 = Facility.new(
-#   name: '会議室A'
+# Facility.create(
+#   name: '会議室A',
+#   category: 1
 # )
-# facility02 = Facility.new(
-#   name: '会議室B'
+# Facility.create(
+#   name: '会議室B',
+#   category: 1
 # )
-# facility01.save
-# facility02.save
 
-# pp Facility.all
-
-require 'json'
+pp Facility.all
 
 # user_schedules = UserSchedule.all.where(user_id: 1)
 # pp user_schedules.to_json
 
-# user = User.new(
+# User.create(
 #   id: 'debugger',
 #   name: 'デバッガ',
 #   email: 'example@example.com',
@@ -85,7 +86,6 @@ require 'json'
 #   created_at: datetime,
 #   updated_at: datetime
 # )
-# user.save
 
 # user = User.find_by_id('aa')
 # pp user

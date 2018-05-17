@@ -9,6 +9,8 @@ class Equipment < ActiveRecord::Base
 end
 class EquipmentReservationSchedule < ActiveRecord::Base
 end
+class FacilityCategory < ActiveRecord::Base
+end
 class Facility < ActiveRecord::Base
 end
 class FacilityReservationSchedule < ActiveRecord::Base
